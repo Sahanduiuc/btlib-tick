@@ -1,0 +1,27 @@
+{
+  "name": "tick",
+  "version": "0.0.0",
+  "description": "q tick library",
+  "main": "tick.q",
+  "dependencies": {
+    "bt": "C:\\dev\\btlib\\bt",
+    "dotz": "C:\\dev\\btlib\\dotz"
+    },
+  "devDependencies": {
+  },
+  "keywords": [
+    "q",
+    "tick",
+    "q library"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
+
