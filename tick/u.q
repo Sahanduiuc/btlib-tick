@@ -26,11 +26,7 @@ upd:{(`.u.batch ^ .init.mode x)[x;y] }
 
 .b.add[`.init.readConf;`.u.tick]{ .dotz.ts.add[ "p" $00:00:01+.z.d + 1;.b.upd`.u.endofday]()!();}
 
-.b.add[`.init.readSym;`.u.setSym]{
-  tt:.Q.dd[`.tick]@'key` _ .init.mode:((enlist`)!enlist `.u.batch), .Q.dd[`.u]@'`$.init.sym[;`tipe];
-  {` vs x}@'tt
-  }
-
+.b.add[`.init.readSym;`.u.setSym]{ key[.init.t]set'value .init.t;.u.t:key .init.t;}
 
 .b.add[`.u.tick`.u.endofday;`.u.ld]{
   .u.L:hsym`$ssr[`.init . `cfg`env`tick`L;"%name";string .init.name],.b.printf("%0-%1.qlog";.z.d;.z.i);
@@ -43,8 +39,5 @@ upd:{(`.u.batch ^ .init.mode x)[x;y] }
 
 .b.add[`;`.u.endofday]{ if[.u.l;.z.hc .u.l];.dotz.ts.add[ "p" $00:00:01+.z.d + 1;.b.upd`.u.endofday]()!();}
 
-
 /
-
-reverse .b.behaviors
 

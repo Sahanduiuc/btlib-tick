@@ -12,6 +12,7 @@ sys:
     basePort: 14000
     process:
       - name: tick
+        mode: hft
         tipe: tick
         port: basePort + 10
         file: sys/tick.q
