@@ -15,9 +15,6 @@ sys:
         tipe: tick
         port: basePort + 10
         file: sys/tick.q
-        depends:
-          - sys/tick.q
-          - tick/tick.q
   rdb:
     basePort: 15000
     process:
@@ -25,9 +22,6 @@ sys:
         tipe: rdb
         port: basePort + 10
         file: sys/rdb.q
-        depends:
-          - sys/rdb.q
-          - tick/rdb.q
   hdb:
     basePort: 16000
     process:
@@ -35,9 +29,7 @@ sys:
         tipe: hdb
         port: basePort + 10
         file: sys/hdb.q
-        depends:
-          - sys/hdb.q
-          - tick/hdb.q
+
 
   feed:
     basePort: 17000
@@ -46,9 +38,7 @@ sys:
         tipe: feed
         port: basePort + 10
         file: sys/feed.q
-        depends:
-          - sys/feed.q
-          - tick/feed.q
+
 test:
   testAll1:
     basePort: 30000
@@ -56,6 +46,4 @@ test:
     - name: test
       port: basePort + 10
       file: test.q
-      depends:
-        - sys/test.q
-        - tick/test.q
+
