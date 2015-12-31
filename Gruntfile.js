@@ -63,6 +63,7 @@ module.exports = function(grunt) {
         y2watch:{files:['sys/system.yaml'],tasks:['file-creator:y2watch']},
         y2shell:{files:['sys/system.yaml'],tasks:['file-creator:y2shell']},
         y2concurrent:{files:['sys/system.yaml'],tasks:['file-creator:y2concurrent']},
+        sym2json:{files:['sys/sym.yaml'],tasks:['file-creator:sym2json'],options:o},
         config:{files:['sys/system.yaml'],tasks:['file-creator:y2sbl','file-creator:y2yak','file-creator:y2json','file-creator:y2watch','file-creator:y2shell','file-creator:y2concurrent'],options:o},
         main:{files:['main.q','tick.q'],tasks:['shell:stopMain','shell:cleanMain','shell:consoleMain'],options:o},
         silent:{files:['main.q','tick.q'],tasks:['shell:stopMain','shell:cleanMain','shell:startMain'],options:o},
@@ -139,6 +140,14 @@ module.exports = function(grunt) {
     watch:cwatch(system),
     concurrent:cconcurrent(system),
     "file-creator": {
+      sym2json: {
+        "sys/sym.json": function(fs, fd, done) {
+          var sym = grunt.file.readYAML('sys/sym.yaml');
+          var str = JSON.stringify(sym,null,2);
+          fs.writeSync(fd,str);
+          done();
+        }
+      },
       y2json: {
         "sys/system.json": function(fs, fd, done) {
           var str = JSON.stringify(system,null,2);
@@ -199,7 +208,7 @@ module.exports = function(grunt) {
   grunt.registerTask('y2watch', ['file-creator:y2watch']);
   grunt.registerTask('y2shell', ['file-creator:y2shell']);
   grunt.registerTask('y2concurrent', ['file-creator:y2concurrent']);
-
+  grunt.registerTask('sym2json', ['file-creator:sym2json']);
 
 
   grunt.registerTask('wy2yak', ['watch:y2yak']);
