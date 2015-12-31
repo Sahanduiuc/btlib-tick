@@ -63,7 +63,7 @@ module.exports = function(grunt) {
         y2watch:{files:['sys/system.yaml'],tasks:['file-creator:y2watch']},
         y2shell:{files:['sys/system.yaml'],tasks:['file-creator:y2shell']},
         y2concurrent:{files:['sys/system.yaml'],tasks:['file-creator:y2concurrent']},
-        config:{files:['sys/system.yaml'],tasks:['file-creator:y2sbl','file-creator:y2yak','file-creator:y2json','file-creator:y2watch','file-creator:y2shell','file-creator:y2concurrent']},
+        config:{files:['sys/system.yaml'],tasks:['file-creator:y2sbl','file-creator:y2yak','file-creator:y2json','file-creator:y2watch','file-creator:y2shell','file-creator:y2concurrent'],options:o},
         main:{files:['main.q','tick.q'],tasks:['shell:stopMain','shell:cleanMain','shell:consoleMain'],options:o},
         silent:{files:['main.q','tick.q'],tasks:['shell:stopMain','shell:cleanMain','shell:startMain'],options:o},
         test:{files:['test/test.q','tick.q'],tasks:['shell:stopTest','shell:cleanTest','shell:consoleTest'],options:o}
