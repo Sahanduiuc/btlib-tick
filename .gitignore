@@ -7,3 +7,6 @@ yak
 main.js
 .sublime-grunt.cache
 grunt
+sys/sym.json
+sys/system.cfg
+sys/system.sbl
