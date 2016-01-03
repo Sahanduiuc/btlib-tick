@@ -28,12 +28,12 @@ sel:{$[`~y;x;select from (1_x) where sym in y]}
 
 upd:{(`.tick.batch ^ .init.mode x)[x;y] }
 
-.b.add[`.init.readConf;`.tick.tick]{ .dotz.ts.add[ "p" $00:00:01+.z.d + 1;.b.upd`.tick.endofday]()!();}
+.b.add[`.init.readConf;`.tick.tick]{ .dotz.ts.add[ "p" $00:00:01+.z.D + 1;.b.upd`.tick.endofday]()!();}
 
 .b.add[`.init.readSym;`.tick.setSym]{ (where `.tick.batch = .init.mode:((enlist`)!enlist `.tick.batch), .Q.dd[`.tick]@'`$.init.sym[;`tipe])set\:{}}
 
 .b.add[`.tick.tick`.tick.endofday;`.tick.ld]{
-  .tick.L:hsym`$ssr[`.init . `cfg`env`tick`L;"%name";string .init.name],.b.printf("%0-%1.qlog";.z.d;.z.i);
+  .tick.L:hsym`$ssr[`.init . `cfg`env`tick`L;"%name";string .init.name],.b.printf("%0-%1.qlog";.z.D;.z.i);
   if[not type key .tick.L; .[.tick.L;();:;()] ];
   .tick.i:.tick.j:-11!(-2;.tick.L);
   if[0<=type .tick.i;
@@ -41,5 +41,5 @@ upd:{(`.tick.batch ^ .init.mode x)[x;y] }
     exit 1];
   .tick.l:.z.ho .tick.L}
 
-.b.add[`;`.tick.endofday]{ if[.tick.l;.z.hc .tick.l];.dotz.ts.add[ "p" $00:00:01+.z.d + 1;.b.upd`.tick.endofday]()!();}
+.b.add[`;`.tick.endofday]{ if[.tick.l;.z.hc .tick.l];.dotz.ts.add[ "p" $00:00:01+.z.D + 1;.b.upd`.tick.endofday]()!();}
 

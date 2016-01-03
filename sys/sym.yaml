@@ -1,12 +1,10 @@
 
 Orders:
-  tipe: hft
-  key:
-    - id
   columns:
+    - time
+    - sym
     - id
     - mid
-    - sym
     - side
     - otype
     - timeinforce
@@ -18,9 +16,10 @@ Orders:
     - time
     - day
   format:
-    - long
-    - long
+    - timespan
     - symbol
+    - long
+    - long
     - symbol
     - symbol
     - symbol
@@ -35,6 +34,7 @@ Orders:
 Trades:
   tipe: hft
   columns:
+    - time
     - sym
     - osize
     - price
@@ -43,6 +43,7 @@ Trades:
     - time
     - day
   format:
+    - timespan
     - symbol
     - int
     - int
@@ -54,12 +55,14 @@ Trades:
 Quotes:
   tipe: batch
   columns:
+    - time
     - sym
     - bidsize
     - bidprice
     - asksize
     - askprice
   format:
+    - timespan
     - symbol
     - int
     - int

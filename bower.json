@@ -5,7 +5,8 @@
   "main": "tick.q",
   "dependencies": {
     "bt": "C:\\dev\\btlib\\bt",
-    "dotz": "C:\\dev\\btlib\\dotz"
+    "dotz": "C:\\dev\\btlib\\dotz",
+    "rbt": "C:\\dev\\btlib\\rbt"
     },
   "devDependencies": {
   },
