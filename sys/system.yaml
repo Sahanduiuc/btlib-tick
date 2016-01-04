@@ -1,49 +1,60 @@
+
+
+test:
+  env:
+    basePort: 36000
+  test:
+    testAll:
+      basePort: 30000
+      process:
+      - name: test
+        port: basePort + 10
+        file: test.q
+
 env:
   sys:
+    cfg: sys/system.json
+    cmd:
+      sym: sys/sym.json
     basePort: 14000
     host: localhost
-  test:
-    basePort: 16000
-    host: localhost
+    endofday: 00:05
+    hdbroot: hdbs/emea
+    file: sys/%group%/%name%.q
   tick:
-    L: qlog/%name/
+    L: qlog/%group%/%name%/%group%.%name%-%date%-%pid%.qlog
+    mode: hft
+    batchTime: "00:01:00"
 sys:
   tick:
     basePort: 14000
     process:
       - name: tick
+        mode: hft
         tipe: tick
         port: basePort + 10
-        file: sys/tick.q
   rdb:
     basePort: 15000
     process:
       - name: rdb
         tipe: rdb
+        sub: tick.tick
         port: basePort + 10
-        file: sys/rdb.q
   hdb:
     basePort: 16000
     process:
       - name: hdb
         tipe: hdb
         port: basePort + 10
-        file: sys/hdb.q
-
-
   feed:
     basePort: 17000
     process:
       - name: feed
         tipe: feed
         port: basePort + 10
-        file: sys/feed.q
-
-test:
-  testAll1:
-    basePort: 30000
+  test:
+    basePort: 37000
     process:
-    - name: test
-      port: basePort + 10
-      file: test.q
-
+      - name: test
+        tipe: test
+        port: basePort + 10
