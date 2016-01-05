@@ -4,9 +4,9 @@
   "description": "q tick library",
   "main": "tick.q",
   "dependencies": {
-    "bt": "C:\\dev\\btlib\\bt",
-    "dotz": "C:\\dev\\btlib\\dotz",
-    "rbt": "C:\\dev\\btlib\\rbt"
+    "bt": "https://github.com/kimtang/btlib-bt.git",
+    "dotz": "https://github.com/kimtang/btlib-dotz.git",
+    "rbt": "https://github.com/kimtang/btlib-rbt.git"
     },
   "devDependencies": {
   },
